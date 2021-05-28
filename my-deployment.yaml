@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: main-dep
+  labels:
+    app: e-store-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cpu-fucker
+  template:
+    metadata:
+      labels:
+        app: cpu-fucker
+    spec:
+      containers:
+        - name: cpu-fucker
+          image: darshanasamanpura/cputest:v1
+          ports:
+            - containerPort: 8080
+              name: service-port
+#          hostPort: 8080
+
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cpu-fucker-network-service
+spec:
+  type: loadbalancer
+  selector:
+    app: e-store-server
+  ports:
+    - name: rest-port
+      protocol: TCP
+      targetPort: 8080
+      port: 8080
+      #nodePort: 32500
+
+
+
