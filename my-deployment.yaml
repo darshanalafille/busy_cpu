@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: cpu-fucker
-          image: darshanasamanpura/cputest:v1
+          image: darshanasamanpura/cputest:v2
           ports:
             - containerPort: 8080
               name: service-port
