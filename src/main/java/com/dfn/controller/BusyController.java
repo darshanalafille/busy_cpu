@@ -23,7 +23,7 @@ public class BusyController {
     private static double fuckCpu(){
         long st = System.currentTimeMillis();
         double result = 0;
-        for (int i=0; i<1_000_000; i++) {
+        for (int i=0; i<1_000_000_00; i++) {
             double val = ThreadLocalRandom.current().nextDouble(123456789.123456789,987654321.9876543);
             result = tan(atan(tan(atan(tan(atan(tan(atan(tan(atan(val))))))))));
         }

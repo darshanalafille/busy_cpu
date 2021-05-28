@@ -20,6 +20,9 @@ spec:
           ports:
             - containerPort: 8080
               name: service-port
+          resources:
+            requests:
+              cpu: "250m"
 #          hostPort: 8080
 
 
@@ -30,7 +33,7 @@ kind: Service
 metadata:
   name: cpu-fucker-network-service
 spec:
-  type: loadbalancer
+  type: LoadBalancer
   selector:
     app: e-store-server
   ports:
