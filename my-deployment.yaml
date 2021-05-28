@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: main-dep
+  name: cpu-fuck-dep
   labels:
     app: e-store-server
 spec:
@@ -35,13 +35,27 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app: e-store-server
+    app: cpu-fucker
   ports:
     - name: rest-port
       protocol: TCP
       targetPort: 8080
       port: 80
       #nodePort: 32500
+
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: cpu-fucker
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: cpu-fuck-dep
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 50
 
 
 
