@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: cpu-fucker
-          image: darshanasamanpura/cputest:v2
+          image: darshanasamanpura/cputest:v5
           ports:
             - containerPort: 8080
               name: service-port
@@ -40,7 +40,7 @@ spec:
     - name: rest-port
       protocol: TCP
       targetPort: 8080
-      port: 8080
+      port: 80
       #nodePort: 32500
 
 
